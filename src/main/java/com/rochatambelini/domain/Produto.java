@@ -32,6 +32,9 @@ public class Produto implements Serializable {
 	)
 	private List<Categoria> categorias = new ArrayList<>();
 	
+	@ManyToMany(mappedBy = "itens")
+	private List<Pedido> pedidos = new ArrayList<>();
+	
 	public Produto() {
 		
 	}
@@ -74,6 +77,14 @@ public class Produto implements Serializable {
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
 	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	@Override
 	public int hashCode() {
@@ -100,7 +111,5 @@ public class Produto implements Serializable {
 		return true;
 	}
 
-	
-	
-	
+		
 }
