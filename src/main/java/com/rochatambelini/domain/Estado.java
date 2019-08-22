@@ -10,26 +10,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class Estados implements Serializable {
+public class Estado implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
 	
-	@JsonBackReference
-	@OneToMany(mappedBy = "estado")
-	List<Cidades> cidades = new ArrayList<>();
-
-	public Estados(){
-		
+	@JsonIgnore
+	@OneToMany(mappedBy="estado")
+	private List<Cidade> cidades = new ArrayList<>();
+	
+	public Estado() {
 	}
 
-	public Estados(Integer id, String nome) {
+	public Estado(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -51,11 +50,11 @@ public class Estados implements Serializable {
 		this.nome = nome;
 	}
 
-	public List<Cidades> getCidades() {
+	public List<Cidade> getCidades() {
 		return cidades;
 	}
 
-	public void setCidades(List<Cidades> cidades) {
+	public void setCidades(List<Cidade> cidades) {
 		this.cidades = cidades;
 	}
 
@@ -75,7 +74,7 @@ public class Estados implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Estados other = (Estados) obj;
+		Estado other = (Estado) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -83,6 +82,7 @@ public class Estados implements Serializable {
 			return false;
 		return true;
 	}
+	
 	
 	
 }

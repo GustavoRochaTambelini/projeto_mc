@@ -3,9 +3,10 @@ package com.rochatambelini.repositores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.rochatambelini.domain.Estados;
+import com.rochatambelini.domain.Estado;
+
 
 @Repository
-public interface EstadosRepository extends JpaRepository<Estados, Integer>{
+public interface EstadosRepository extends JpaRepository<Estado, Integer>{
 
 }

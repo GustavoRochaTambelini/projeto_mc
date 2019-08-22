@@ -3,12 +3,11 @@ package com.rochatambelini.repositores;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.rochatambelini.domain.Cidade;
-
+import com.rochatambelini.domain.ItemPedido;
 
 
 
 @Repository
-public interface CidadeRepository extends JpaRepository<Cidade, Integer>{
+public interface ItemPedidoRepository extends JpaRepository<ItemPedido, Integer> {
 
 }
