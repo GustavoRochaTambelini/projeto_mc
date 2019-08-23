@@ -3,6 +3,8 @@ package com.rochatambelini.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Optional;
 import com.rochatambelini.domain.Categoria;
 import com.rochatambelini.repositores.CategoriaRepository;
@@ -39,5 +41,10 @@ public class CategoriaService {
 		catch(DataIntegrityViolationException e){
 			throw new DateIntegrityExeption("Não é possivel exclir uma categoria que possui produtos");
 		}
+	}
+
+	public List <Categoria> findAll() {
+		List <Categoria> list = repo.findAll();
+		return list;
 	}
 }
